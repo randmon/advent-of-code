@@ -6,28 +6,29 @@ input = get_data(day=5, year=2023).strip().split("\n")
 # input = open("test.txt").read().strip().split("\n")
 
 seeds_input = list(map(int, input[0].split()[1:]))
-seeds = [(seeds_input[i], seeds_input[i+1])for i in range(0, len(seeds_input), 2)]
+seeds = [(seeds_input[i], seeds_input[i+1]) for i in range(0, len(seeds_input), 2)]
 
 mappings = []
 
 i = 2
 while i < len(input):
     catA, _, catB = input[i].split(" ")[0].split("-")
-    mappings.append([])
-
+    mapping = []
+    
     i += 1
-    while i < len(input) and not input[i] == "":
+    while i < len(input) and input[i]:
         dstStart, srcStart, rangeLen = map(int, input[i].split())
-        mappings[-1].append((dstStart, srcStart, rangeLen))
+        mapping.append((dstStart, srcStart, rangeLen))
         i += 1
 
-    mappings[-1].sort(key=lambda x: x[1])
-
+    mapping.sort(key=lambda x: x[1])
+    mappings.append(mapping)
     i += 1
 
 def remap(interval, m):
     low, high = interval
     ans = []
+    
     for destination, source, range in m:
         end = source + range - 1
         diff = destination - source

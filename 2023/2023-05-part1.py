@@ -1,10 +1,8 @@
 from aocd import get_data
-
-# input = get_data(day=5, year=2023).strip().split("\n\n")
-input = open("test.txt").read().strip().split("\n\n")
-
-
 print("\n## Part 1 ##")
+
+input = get_data(day=5, year=2023).strip().split("\n\n")
+# input = open("test.txt").read().strip().split("\n\n")
 
 def convert_input(lines):
     lines = [list(map(int, x.split())) for x in lines.split("\n")[1:]]
