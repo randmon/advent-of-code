@@ -2,9 +2,7 @@ from aocd import get_data
 import re
 
 input = get_data(day=3, year=2024)
-with open("3.txt", "w") as f:
-  f.write(input)
-  
+
 input = input.replace("\n", "N")
   
 print("\n## Part 1 ##")
