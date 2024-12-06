@@ -1,6 +1,8 @@
 from aocd import get_data
 
 input = get_data(day=1, year=2024).strip().split("\n")
+with open("1", "w") as f:
+  f.write("\n".join(input))
 # input = open("test.txt").read().strip().split("\n")
 
 print("\n## Part 1 ##")

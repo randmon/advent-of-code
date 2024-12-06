@@ -1,30 +1,9 @@
-from aocd import get_data
 import re
+i=open("3").read().replace("\n","")
+p=r"mul\((\d+),(\d+)\)"
+print(sum(int(a)*int(b)for a,b in re.findall(p,i)))
+i=re.sub(r"don't\(\).*?(do\(\))","",i)
+print(sum(int(a)*int(b)for a,b in re.findall(p,i[:i.find("don't()")])))
 
-input = get_data(day=3, year=2024)
-
-input = input.replace("\n", "N")
-  
-print("\n## Part 1 ##")
-
-pattern = r"mul\((\d+),(\d+)\)"
-result = 0
-for a, b in re.findall(pattern, input):
-  result += int(a) * int(b)
-
-print(result)
-
-print("\n## Part 2 ##")
-
-result = 0
-
-# Remove everything between don't() and do(), and everything after the remaining donts
-input = re.sub(r"don't\(\).*?(do\(\))", "*", input)
-
-last_dont = input.find("don't()")
-input = input[:last_dont]
-
-for a, b in re.findall(pattern, input):
-  result += int(a) * int(b)
-  
-print(result)
+# 189527826 63013756
+# 237 chars
