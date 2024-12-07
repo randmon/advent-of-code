@@ -6,8 +6,7 @@ is_example = False
 if not is_example: input = get_data(day=7, year=2024).strip().split("\n")
 else: input = open("2024/7.in").read().strip().split("\n")
 
-input = [i.split(":") for i in input]
-input = {int(i[0]): [int(j) for j in i[1].split()] for i in input}
+input = {int(i.split(":")[0]): list(map(int, i.split(":")[1].split())) for i in input}
 
 print("\n## Part 1 ##\n")
 
