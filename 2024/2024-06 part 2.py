@@ -1,9 +1,10 @@
 from aocd import get_data
 import time
+from utils import bcolors
 
-input = get_data(day=6, year=2024).strip().split("\n")
-# input = open("test.txt").read().strip().split("\n")
 is_example = False
+if is_example: input = open("2024/6.in").read().strip().split("\n")
+else: input = get_data(day=6, year=2024).strip().split("\n")
 
 UP = "^"
 RIGHT = ">"
@@ -11,17 +12,6 @@ DOWN = "v"
 LEFT = "<"
 
 print("\033c\n## Part 2 ##")
-
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
 
 def print_board(board, count):
   output = "\033c\n## Part 2 ##\n\n"

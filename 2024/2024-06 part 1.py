@@ -1,41 +1,29 @@
 from aocd import get_data
 import time
+from utils import bcolors
 
 is_example = False
 
-if is_example: input = get_data(day=6, year=2024).strip().split("\n")
-else: input = open("2024/6.in").read().strip().split("\n")
+if is_example: input = open("2024/6.in").read().strip().split("\n")
+else: input = get_data(day=6, year=2024).strip().split("\n")
 
-print("\n## Part 1 ##")
-
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
+print(f"{bcolors.CLEAR}\n## Part 1 ##")
 
 def print_board(board):
-  # Clear the terminal
-  print("\033c")
+  output = f"{bcolors.CLEAR}\n## Part 1 ##\n\n"
   
-  print()
   for i in board:
     for j in i:
       if j == obstacle:
-        print(bcolors.FAIL,bcolors.BOLD + j + bcolors.ENDC, end="")
+        output += f"{bcolors.FAIL}{bcolors.BOLD}# {bcolors.ENDC}"
       elif j in guard_pos:
-        print(bcolors.OKBLUE,bcolors.BOLD + j + bcolors.ENDC, end="")
+        output += f"{bcolors.OKBLUE}{bcolors.BOLD}{j} {bcolors.ENDC}"
       elif j in [walked_UD, walked_LR, walked_ALL]:
-        print(bcolors.OKGREEN,bcolors.BOLD + j + bcolors.ENDC, end="")
+        output += f"{bcolors.OKGREEN}{bcolors.BOLD}{j} {bcolors.ENDC}"
       else:
-        print(bcolors.WARNING,bcolors.BOLD + j + bcolors.ENDC, end="")
-    print()
-  print()
+        output += f"{bcolors.WARNING}{bcolors.BOLD}. {bcolors.ENDC}"
+    output += "\n"
+  print(output)
 
   
 guard_pos = ["^", ">", "v", "<"]
@@ -119,8 +107,9 @@ def move_guard(guard):
 def walk_until_out_of_board(guard):
   while True:
     guard = move_guard(guard)
-    print_board(board1)
-    time.sleep(0.1)
+    if is_example:
+      print_board(board1)
+      time.sleep(0.1)
     if guard[0] == 0: return
 
 walk_until_out_of_board(guard)
