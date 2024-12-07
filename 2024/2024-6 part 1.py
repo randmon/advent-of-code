@@ -1,9 +1,10 @@
 from aocd import get_data
 import time
 
-# input = get_data(day=6, year=2024).strip().split("\n")
-input = open("test.txt").read().strip().split("\n")
-is_example = True
+is_example = False
+
+if is_example: input = get_data(day=6, year=2024).strip().split("\n")
+else: input = open("2024/6.in").read().strip().split("\n")
 
 print("\n## Part 1 ##")
 
