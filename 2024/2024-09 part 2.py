@@ -28,10 +28,10 @@ def print_system(system):
   for i in system:
     if i[0] == -1:
       c = ". "*i[1]
-      print(f"{bcolors.BOLD}{bcolors.WARNING}{c}{bcolors.ENDC}", end="")
+      print(f"{bcolors.BOLD}{bcolors.YELLOW}{c}{bcolors.ENDC}", end="")
     else:
       c = f"{i[0]} "*i[1]
-      print(f"{bcolors.BOLD}{bcolors.OKGREEN}{c}{bcolors.ENDC}", end="")
+      print(f"{bcolors.BOLD}{bcolors.GREEN}{c}{bcolors.ENDC}", end="")
   print()
    
 if is_example: print_system(system)

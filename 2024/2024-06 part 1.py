@@ -15,13 +15,13 @@ def print_board(board):
   for i in board:
     for j in i:
       if j == obstacle:
-        output += f"{bcolors.FAIL}{bcolors.BOLD}# {bcolors.ENDC}"
+        output += f"{bcolors.RED}{bcolors.BOLD}# {bcolors.ENDC}"
       elif j in guard_pos:
-        output += f"{bcolors.OKBLUE}{bcolors.BOLD}{j} {bcolors.ENDC}"
+        output += f"{bcolors.BLUE}{bcolors.BOLD}{j} {bcolors.ENDC}"
       elif j in [walked_UD, walked_LR, walked_ALL]:
-        output += f"{bcolors.OKGREEN}{bcolors.BOLD}{j} {bcolors.ENDC}"
+        output += f"{bcolors.GREEN}{bcolors.BOLD}{j} {bcolors.ENDC}"
       else:
-        output += f"{bcolors.WARNING}{bcolors.BOLD}. {bcolors.ENDC}"
+        output += f"{bcolors.YELLOW}{bcolors.BOLD}. {bcolors.ENDC}"
     output += "\n"
   print(output)
 

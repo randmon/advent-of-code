@@ -47,10 +47,10 @@ for row_num, row in enumerate(input):
 result = []
    
 for group in antennas:
-  if is_example: print(f"\n{bcolors.OKBLUE}--- {group} ---{bcolors.ENDC}")
+  if is_example: print(f"\n{bcolors.BLUE}--- {group} ---{bcolors.ENDC}")
   all_combinations = list(itertools.combinations(antennas[group], 2))
   for a, b in all_combinations:
-    if is_example: print(f"\n{bcolors.OKGREEN}--- {a} {b} ---{bcolors.ENDC}")
+    if is_example: print(f"\n{bcolors.GREEN}--- {a} {b} ---{bcolors.ENDC}")
     a1, a2 = get_anti_nodes(a, b)
     if is_example: print(f"Antinodes: {a1} {a2}")
     if a1[0] >= 0 and a1[0] < height and a1[1] >= 0 and a1[1] < width:
@@ -68,11 +68,11 @@ def print_board():
     for col_num, c in enumerate(row):
       if (row_num, col_num) in result:
         if c == ".":
-          print(f"{bcolors.OKCYAN}{bcolors.BOLD}#{bcolors.ENDC}", end="")
+          print(f"{bcolors.CYAN}{bcolors.BOLD}#{bcolors.ENDC}", end="")
         else:
-          print(f"{bcolors.OKGREEN}{bcolors.BOLD}{c}{bcolors.ENDC}", end="")
+          print(f"{bcolors.GREEN}{bcolors.BOLD}{c}{bcolors.ENDC}", end="")
       elif c != ".":
-        print(f"{bcolors.WARNING}{bcolors.BOLD}{c}{bcolors.ENDC}", end="")
+        print(f"{bcolors.YELLOW}{bcolors.BOLD}{c}{bcolors.ENDC}", end="")
       else:
         print(c, end="")
     print()
@@ -120,10 +120,10 @@ def get_more_antinodes(a1, a2):
 result = [a for group in antennas for a in antennas[group]]
 
 for group in antennas:
-  if is_example: print(f"\n{bcolors.OKBLUE}--- {group} ---{bcolors.ENDC}")
+  if is_example: print(f"\n{bcolors.BLUE}--- {group} ---{bcolors.ENDC}")
   all_combinations = list(itertools.combinations(antennas[group], 2))
   for a, b in all_combinations:
-    if is_example: print(f"\n{bcolors.OKGREEN}--- {a} {b} ---{bcolors.ENDC}")
+    if is_example: print(f"\n{bcolors.GREEN}--- {a} {b} ---{bcolors.ENDC}")
     nodes = get_more_antinodes(a, b)
     if is_example: print(f"Antinodes: {nodes}")
     for node in nodes:

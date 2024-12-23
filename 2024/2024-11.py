@@ -1,6 +1,5 @@
 from aocd import get_data
 from utils import bcolors, start_timer, print_timer
-import time
 import math
 
 is_example = False

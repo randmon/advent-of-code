@@ -26,9 +26,9 @@ original_system = system.copy()
 def print_system(system):
   for i in system:
     if i == -1:
-      print(f"{bcolors.BOLD}{bcolors.WARNING}. {bcolors.ENDC}", end="")
+      print(f"{bcolors.BOLD}{bcolors.YELLOW}. {bcolors.ENDC}", end="")
     else:
-      print(f"{bcolors.BOLD}{bcolors.OKGREEN}{i} {bcolors.ENDC}", end="")
+      print(f"{bcolors.BOLD}{bcolors.GREEN}{i} {bcolors.ENDC}", end="")
   print()
    
 if is_example: print_system(system)

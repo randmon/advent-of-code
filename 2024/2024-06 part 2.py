@@ -19,19 +19,19 @@ def print_board(board, count):
   for i in board:
     for j in i:
       if j["UP"]:
-        output += f"{bcolors.OKBLUE}{bcolors.BOLD}^{bcolors.ENDC} "
+        output += f"{bcolors.BLUE}{bcolors.BOLD}^{bcolors.ENDC} "
       elif j["RIGHT"]:
-        output += f"{bcolors.OKBLUE}{bcolors.BOLD}>{bcolors.ENDC} "
+        output += f"{bcolors.BLUE}{bcolors.BOLD}>{bcolors.ENDC} "
       elif j["DOWN"]:
-        output += f"{bcolors.OKBLUE}{bcolors.BOLD}v{bcolors.ENDC} "
+        output += f"{bcolors.BLUE}{bcolors.BOLD}v{bcolors.ENDC} "
       elif j["LEFT"]:
-        output += f"{bcolors.OKBLUE}{bcolors.BOLD}<{bcolors.ENDC} "
+        output += f"{bcolors.BLUE}{bcolors.BOLD}<{bcolors.ENDC} "
       elif j["obstacle"]:
-        output += f"{bcolors.FAIL}{bcolors.BOLD}#{bcolors.ENDC} "
+        output += f"{bcolors.RED}{bcolors.BOLD}#{bcolors.ENDC} "
       elif j["new_obstacle"]:
-        output += f"{bcolors.OKCYAN}{bcolors.BOLD}O{bcolors.ENDC} "
+        output += f"{bcolors.CYAN}{bcolors.BOLD}O{bcolors.ENDC} "
       else:
-        output += f"{bcolors.WARNING}{bcolors.BOLD}.{bcolors.ENDC} "
+        output += f"{bcolors.YELLOW}{bcolors.BOLD}.{bcolors.ENDC} "
     output += "\n"
   output += f"\nCount: {count}\n"
   print(output)
